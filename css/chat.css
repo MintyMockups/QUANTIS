@@ -1,12 +1,22 @@
 .topbar{
 
-    height:70px;
+    height:72px;
 
     display:flex;
 
     align-items:center;
 
-    padding:0 30px;
+    padding:0 40px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.topbar h1{
+
+    font-size:22px;
+
+    font-weight:700;
 
 }
 
@@ -27,5 +37,13 @@
 .welcome{
 
     text-align:center;
+
+}
+
+.welcome h2{
+
+    font-size:42px;
+
+    font-weight:700;
 
 }

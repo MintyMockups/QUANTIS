@@ -1,10 +1,10 @@
 .input-area{
 
+    padding:24px 32px;
+
     display:flex;
 
-    gap:12px;
-
-    padding:20px;
+    gap:16px;
 
 }
 
@@ -18,22 +18,40 @@ textarea{
 
     color:white;
 
-    border:none;
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:18px;
 
     outline:none;
 
-    padding:16px;
+    font-size:15px;
 
-    border-radius:16px;
+    line-height:1.5;
+
+}
+
+textarea:focus{
+
+    border-color:var(--accent);
 
 }
 
 #send{
 
-    width:55px;
+    width:60px;
 
     border:none;
 
-    border-radius:16px;
+    border-radius:18px;
+
+    background:var(--accent);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:22px;
 
 }
