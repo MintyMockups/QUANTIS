@@ -1,10 +1,26 @@
 .input-area{
 
-    padding:24px 32px;
-
     display:flex;
 
-    gap:16px;
+    gap:14px;
+
+    width:100%;
+
+    max-width:950px;
+
+    margin:0 auto;
+
+    padding:28px;
+
+    transition:.35s ease;
+
+}
+
+.input-area.centered{
+
+    margin-top:auto;
+
+    margin-bottom:50px;
 
 }
 
@@ -14,21 +30,21 @@ textarea{
 
     resize:none;
 
+    border:none;
+
+    outline:none;
+
     background:var(--panel);
 
     color:white;
 
-    border:1px solid var(--border);
-
     border-radius:18px;
 
-    padding:18px;
+    padding:18px 22px;
 
-    outline:none;
+    font-size:16px;
 
-    font-size:15px;
-
-    line-height:1.5;
+    border:1px solid var(--border);
 
 }
 
@@ -50,8 +66,8 @@ textarea:focus{
 
     color:white;
 
-    cursor:pointer;
-
     font-size:22px;
+
+    cursor:pointer;
 
 }

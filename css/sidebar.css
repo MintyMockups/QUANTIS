@@ -1,9 +1,6 @@
 .sidebar{
 
-    width:280px;
-
-    display:flex;
-    flex-direction:column;
+    width:290px;
 
     background:var(--panel);
 
@@ -11,50 +8,18 @@
 
 }
 
-.sidebar-top{
-
-    padding:18px;
-
-}
-
-.new-chat{
+.sidebar-bottom button{
 
     width:100%;
 
-    padding:14px;
+    background:none;
 
-    background:transparent;
+    color:var(--text-secondary);
 
-    color:white;
-
-    border:1px solid var(--border);
-
-    border-radius:14px;
+    border:none;
 
     cursor:pointer;
 
-    transition:.2s;
-
-}
-
-.new-chat:hover{
-
-    background:var(--panel-light);
-
-}
-
-.chat-history{
-
-    flex:1;
-
-    overflow:auto;
-
-    padding:15px;
-
-}
-
-.sidebar-bottom{
-
-    padding:18px;
+    padding:12px;
 
 }

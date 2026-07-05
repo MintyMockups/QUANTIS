@@ -1,19 +1,21 @@
 :root{
 
-    --bg:#0d0d0d;
+    --bg:#0D0D0D;
 
     --panel:#171717;
 
-    --panel-light:#202020;
+    --panel-light:#1F1F1F;
 
-    --text:#ffffff;
+    --border:#2A2A2A;
 
-    --text-secondary:#a0a0a0;
+    --text:#F5F5F5;
 
-    --accent:#5b8cff;
+    --text-secondary:#9A9A9A;
 
-    --border:#2a2a2a;
+    --accent:#5B8CFF;
 
-    --radius:16px;
+    --radius:18px;
+
+    --max-width:850px;
 
 }
