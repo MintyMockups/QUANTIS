@@ -51,42 +51,72 @@
 
         <header class="topbar">
 
-            <h1>Quantis</h1>
+            <div class="brand-small">
+
+                <!-- Logo goes here later -->
+                <span class="brand-name">Quantis</span>
+
+            </div>
 
         </header>
 
 
-        <section class="chat-area">
+        <section id="chatArea" class="chat-area new-chat">
 
-            <div class="welcome">
+            <div id="hero" class="hero">
 
-                <h2>What can I help with?</h2>
+                <div class="hero-logo">
+
+                    <!-- Your animated logo later -->
+
+                </div>
+
+                <h1>Quantis</h1>
+
+                <p>
+                    I can help with programming, writing,
+                    brainstorming, debugging, learning,
+                    and much more.
+                </p>
+
+                <div class="starter-prompts">
+
+                    <button>💻 Generate code</button>
+
+                    <button>🧠 Explain something</button>
+
+                    <button>🚀 Brainstorm ideas</button>
+
+                    <button>✍️ Write content</button>
+
+                </div>
 
             </div>
 
-            <div id="messages">
 
-            </div>
+            <div id="messages"></div>
 
         </section>
 
 
-        <footer class="input-area">
+        <footer id="inputArea" class="input-area centered">
 
             <textarea
                 id="prompt"
-                placeholder="Message Quantis..."
+                placeholder="Ask Quantis..."
                 rows="1"
             ></textarea>
 
             <button id="send">
-                →
+
+                ↑
+
             </button>
 
         </footer>
 
     </main>
-
+    
 </div>
 
 <script type="module" src="js/app.js"></script>
