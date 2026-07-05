@@ -1,0 +1,39 @@
+.input-area{
+
+    display:flex;
+
+    gap:12px;
+
+    padding:20px;
+
+}
+
+textarea{
+
+    flex:1;
+
+    resize:none;
+
+    background:var(--panel);
+
+    color:white;
+
+    border:none;
+
+    outline:none;
+
+    padding:16px;
+
+    border-radius:16px;
+
+}
+
+#send{
+
+    width:55px;
+
+    border:none;
+
+    border-radius:16px;
+
+}
