@@ -6,6 +6,7 @@
 
     <title>Quantis</title>
 
+    <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
@@ -26,9 +27,9 @@
 
         <div class="sidebar-top">
 
-            <button class="new-chat">
+            <button id="newChatBtn" class="new-chat">
 
-                <svg>...</svg>
+                <span class="icon-holder"></span>
 
                 <span>New Chat</span>
 
@@ -42,11 +43,13 @@
 
         <div class="sidebar-bottom">
 
-            <button class="settings-btn">
+            <button id="settingsBtn" class="settings-btn">
 
-                <svg>...</svg>
+                <span class="icon-holder"></span>
 
                 <span>Settings</span>
+
+                </button>
 
             </button>
 
@@ -115,11 +118,7 @@
                 rows="1"
             ></textarea>
 
-            <button id="send">
-
-                ↑
-
-            </button>
+            <button id="send"></button>
 
         </footer>
 
