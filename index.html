@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="Quantis - Premium AI Workspace">
+    <meta name="theme-color" content="#0D0D0D">
     <title>Quantis</title>
-
-    <link rel="stylesheet" href="css/icons.css">
+    <link rel="icon" type="image/svg+xml" href="assets/logos/Quantis.svg">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
@@ -15,118 +15,345 @@
     <link rel="stylesheet" href="css/input.css">
     <link rel="stylesheet" href="css/codeblock.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <div class="app">
-
-    <aside class="sidebar">
-
-        <div class="sidebar-top">
-
-            <button id="newChatBtn" class="new-chat">
-
-                <span class="icon-holder"></span>
-
-                <span>New Chat</span>
-
+    <aside class="sidebar" aria-label="Sidebar">
+        <div class="sidebar-header">
+            <button id="sidebarBrand" class="sidebar-brand" aria-label="Quantis Home">
+                <span class="icon-holder logo-icon" aria-hidden="true"></span>
+                <div class="brand-text">
+                    <span class="brand-name">Quantis</span>
+                    <span class="brand-slogan">AI workspace</span>
+                    <span class="brand-meta" id="sidebarAuthHint">Guest mode</span>
+                </div>
             </button>
-
-        </div>
-
-        <div class="chat-history">
-
-        </div>
-
-        <div class="sidebar-bottom">
-
-            <button id="settingsBtn" class="settings-btn">
-
+            <button id="sidebarCollapseBtn" class="icon-button sidebar-collapse" aria-label="Collapse sidebar">
                 <span class="icon-holder"></span>
-
-                <span>Settings</span>
-
-                </button>
-
             </button>
-
         </div>
 
-    </aside>
-
-
-    <main class="main">
-
-        <header class="topbar">
-
-            <div class="brand-small">
-
-                <!-- Logo goes here later -->
-                <span class="brand-name">Quantis</span>
-
+        <div class="sidebar-actions">
+            <button id="newChatBtn" class="button button-primary button-block">
+                <span class="icon-holder"></span>
+                <span>New chat</span>
+            </button>
+            <div class="sidebar-search">
+                <span class="icon-holder"></span>
+                <input id="chatSearch" type="search" placeholder="Search chats" aria-label="Search chats">
             </div>
+        </div>
 
+        <div class="sidebar-list">
+            <div id="chatHistory" class="sidebar-history" aria-label="Conversation history"></div>
+        </div>
+
+        <div class="sidebar-footer">
+            <button id="themeToggleBtn" class="button button-ghost button-block" aria-label="Toggle theme">
+                <span class="icon-holder"></span>
+                <span>Theme</span>
+            </button>
+            <button id="shortcutsBtn" class="button button-ghost button-block" aria-label="Shortcuts">
+                <span class="icon-holder"></span>
+                <span>Shortcuts</span>
+            </button>
+            <button id="settingsBtn" class="button button-ghost button-block" aria-label="Open settings">
+                <span class="icon-holder"></span>
+                <span>Settings</span>
+            </button>
+            <button id="profileBtn" class="button button-ghost button-block" aria-label="Profile menu">
+                <span class="icon-holder"></span>
+                <span>Sign In</span>
+            </button>
+        </div>
+    </aside>
+    <div class="sidebar-backdrop hidden" id="sidebarBackdrop" aria-hidden="true"></div>
+
+    <main class="workspace">
+        <header class="topbar">
+            <div class="topbar-left">
+                <button id="mobileMenuBtn" class="icon-button mobile-menu-button" aria-label="Open sidebar">
+                    <span class="icon-holder"></span>
+                </button>
+                <button id="topbarBrand" class="topbar-brand" aria-label="Quantis home">
+                    <span class="icon-holder logo-icon" aria-hidden="true"></span>
+                </button>
+                <div class="topbar-title">
+                    <div class="current-chat-label">New conversation</div>
+                    <div class="current-chat-subtitle">Start with a prompt or choose a suggestion.</div>
+                    <div class="topbar-sync" id="topbarSyncNote">Sign in to sync history and sessions across devices.</div>
+                </div>
+            </div>
+            <div class="topbar-actions">
+                <button id="topbarSearchBtn" class="icon-button" aria-label="Search conversations">
+                    <span class="icon-holder"></span>
+                </button>
+                <button id="shareConversationBtn" class="button button-ghost hidden" aria-label="Share conversation">
+                    <span class="icon-holder"></span>
+                    <span>Share</span>
+                </button>
+                <button id="exportConversationBtn" class="button button-ghost hidden" aria-label="Export conversation">
+                    <span class="icon-holder"></span>
+                    <span>Export</span>
+                </button>
+                <button id="signupBtn" class="button button-outline">Sign Up</button>
+                <button id="loginBtn" class="button button-primary">Sign In</button>
+            </div>
         </header>
 
-
-        <section id="chatArea" class="chat-area new-chat">
-
-            <div id="hero" class="hero">
-
-                <div class="hero-logo">
-
-                    <!-- Your animated logo later -->
-
+        <section class="chat-panel" aria-live="polite">
+            <div class="landing-state" id="landingState">
+                <div class="landing-logo">
+                    <span class="icon-holder logo-icon-large logo-animated" aria-hidden="true"></span>
                 </div>
-
-                <h1>Quantis</h1>
-
-                <p>
-                    I can help with programming, writing,
-                    brainstorming, debugging, learning,
-                    and much more.
-                </p>
-
-                <div class="starter-prompts">
-
-                    <button>Generate code</button>
-
-                    <button>Explain something</button>
-
-                    <button>Brainstorm ideas</button>
-
-                    <button>Write content</button>
-
+                <div class="landing-copy">
+                    <p class="eyebrow">Quantis</p>
+                    <h1>Hi, How can I Help You Today?</h1>
+                    <p class="subtitle">I can help you write code, solve problems, brainstorm ideas and much more.</p>
                 </div>
-
+                <div class="starter-prompts landing-prompts">
+                    <button class="prompt-chip animate-fade-in" style="animation-delay: 0.1s;" data-prompt="Generate code for a React login page">Generate code</button>
+                    <button class="prompt-chip animate-fade-in" style="animation-delay: 0.15s;" data-prompt="Explain the difference between async/await and promises">Explain something</button>
+                    <button class="prompt-chip animate-fade-in" style="animation-delay: 0.2s;" data-prompt="Debug this JavaScript function">Debug code</button>
+                    <button class="prompt-chip animate-fade-in" style="animation-delay: 0.25s;" data-prompt="Write an article about AI best practices">Write an article</button>
+                    <button class="prompt-chip animate-fade-in" style="animation-delay: 0.3s;" data-prompt="Plan a project for a new mobile app">Plan a project</button>
+                    <button class="prompt-chip animate-fade-in" style="animation-delay: 0.35s;" data-prompt="Create SQL query to find top users">Create SQL query</button>
+                    <button class="prompt-chip animate-fade-in" style="animation-delay: 0.4s;" data-prompt="Create Python script to scrape a website">Create Python script</button>
+                    <button class="prompt-chip animate-fade-in" style="animation-delay: 0.45s;" data-prompt="Improve writing for my email draft">Improve writing</button>
+                </div>
             </div>
 
-
-            <div id="messages"></div>
-
+            <div class="messages-container hidden" id="messagesContainer">
+                <div class="messages-inner" id="messagesInner"></div>
+                <div class="thinking-indicator hidden" id="thinkingIndicator">
+                    <div class="thinking-inner">
+                        <div class="thinking-header">
+                            <div class="thinking-avatar">
+                                <span class="icon-holder logo-icon" aria-hidden="true"></span>
+                            </div>
+                            <span class="thinking-label">Quantis is thinking</span>
+                            <div class="thinking-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="thinking-skeleton">
+                            <div class="skeleton-line loading-shimmer"></div>
+                            <div class="skeleton-line loading-shimmer"></div>
+                            <div class="skeleton-line loading-shimmer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="scrollToBottomBtn" class="scroll-bottom-btn" aria-label="Scroll to bottom">
+                <span class="icon-holder"></span>
+            </button>
         </section>
 
-
-        <footer id="inputArea" class="input-area centered">
-
-            <textarea
-                id="prompt"
-                placeholder="Ask Quantis..."
-                rows="1"
-            ></textarea>
-
-            <button id="send"></button>
-
+        <footer class="chat-input-panel" id="chatInputPanel">
+            <div class="chat-input-inner">
+                <button id="attachBtn" class="icon-button" aria-label="Attach file">
+                    <span class="icon-holder"></span>
+                </button>
+                <div class="input-wrapper">
+                    <div class="attached-files hidden" id="attachedFiles"></div>
+                    <textarea id="messageInput" class="message-input" role="textbox" aria-label="Ask Quantis" placeholder="Ask Quantis..." rows="1"></textarea>
+                    <div class="input-footer">
+                        <div class="input-status">Press Enter to send, Shift+Enter for new line</div>
+                        <div class="input-tools">
+                            <button id="imageBtn" class="icon-button" aria-label="Insert image"><span class="icon-holder"></span></button>
+                            <button id="voiceBtn" class="icon-button" aria-label="Voice input"><span class="icon-holder"></span></button>
+                        </div>
+                    </div>
+                </div>
+                <button id="sendBtn" class="button button-circle" aria-label="Send message">
+                    <span class="icon-holder"></span>
+                </button>
+            </div>
         </footer>
-
     </main>
-    
 </div>
 
-<script type="module" src="js/app.js"></script>
+<div class="settings-panel hidden" id="settingsPanel" aria-hidden="true">
+    <div class="settings-backdrop" id="settingsBackdrop"></div>
+    <aside class="settings-drawer" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+        <div class="settings-header">
+            <div>
+                <p class="eyebrow">Workspace</p>
+                <h2 id="settingsTitle">Settings</h2>
+            </div>
+            <button id="closeSettings" class="icon-button" aria-label="Close settings">
+                <span class="icon-holder"></span>
+            </button>
+        </div>
+        <div class="settings-body">
+            <div class="settings-section">
+                <div class="settings-section-title-row">
+                    <div>
+                        <div class="settings-section-title">Account</div>
+                        <p class="settings-section-copy">Sign in to save sessions, sync history, and unlock profile controls.</p>
+                    </div>
+                    <span id="authStatus" class="auth-status">Signed out</span>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-avatar" id="profileAvatar">Q</div>
+                    <div class="profile-details">
+                        <p class="profile-name" id="profileName">Guest</p>
+                        <p class="profile-email" id="profileEmail">Continue as a guest to keep exploring.</p>
+                    </div>
+                </div>
+                <div class="auth-actions">
+                    <button id="settingsSignInBtn" type="button" class="button button-primary">Sign In</button>
+                    <button id="settingsSignUpBtn" type="button" class="button button-outline">Create account</button>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <div class="settings-section-title">Appearance</div>
+                
+                <div class="settings-row">
+                    <span class="settings-row-label">Theme</span>
+                    <select id="themeSelect" class="settings-select">
+                        <option value="system">System Default</option>
+                        <option value="dark">Dark</option>
+                        <option value="light">Light</option>
+                    </select>
+                </div>
+                
+                <div class="settings-row">
+                    <span class="settings-row-label">Font Size</span>
+                    <select id="fontSizeSelect" class="settings-select">
+                        <option value="14px">Small</option>
+                        <option value="16px">Medium</option>
+                        <option value="18px">Large</option>
+                    </select>
+                </div>
+                
+                <div class="settings-row">
+                    <span class="settings-row-label">UI Animations</span>
+                    <label class="switch">
+                        <input type="checkbox" id="animationsToggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
 
+            <div class="settings-section">
+                <div class="settings-section-title">Chat Behavior</div>
+                
+                <div class="settings-row">
+                    <span class="settings-row-label">Typewriter Speed</span>
+                    <select id="typewriterSpeed" class="settings-select">
+                        <option value="fast">Fast</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="slow">Slow</option>
+                    </select>
+                </div>
+                
+                <div class="settings-section-title" style="margin-top: 12px;">System Prompt</div>
+                <p class="settings-note">Instructions appended to every conversation to guide the AI's behavior.</p>
+                <textarea id="systemPromptEditor" class="settings-textarea" placeholder="You are a helpful AI assistant..."></textarea>
+            </div>
+            
+            <div class="settings-section">
+                <div class="settings-section-title">Data & Privacy</div>
+                <button id="clearChatsBtn" type="button" class="button button-outline">Clear history</button>
+                <p class="settings-note">Reset the sidebar and start a fresh chat experience.</p>
+            </div>
+        </div>
+    </aside>
+</div>
+
+<!-- Shortcuts Modal -->
+<div class="modal-overlay hidden" id="shortcutsModal" aria-hidden="true">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">Keyboard Shortcuts</h3>
+            <button class="icon-button close-modal" aria-label="Close shortcuts">
+                <span class="icon-holder"></span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="settings-row">
+                <span class="settings-row-label">Search conversations</span>
+                <span class="settings-row-label" style="font-family: var(--font-mono);">Ctrl + K</span>
+            </div>
+            <div class="settings-row">
+                <span class="settings-row-label">Focus chat input</span>
+                <span class="settings-row-label" style="font-family: var(--font-mono);">Ctrl + /</span>
+            </div>
+            <div class="settings-row">
+                <span class="settings-row-label">New conversation</span>
+                <span class="settings-row-label" style="font-family: var(--font-mono);">Ctrl + Shift + C</span>
+            </div>
+            <div class="settings-row">
+                <span class="settings-row-label">Send message</span>
+                <span class="settings-row-label" style="font-family: var(--font-mono);">Enter</span>
+            </div>
+            <div class="settings-row">
+                <span class="settings-row-label">Line break</span>
+                <span class="settings-row-label" style="font-family: var(--font-mono);">Shift + Enter</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Export Modal -->
+<div class="modal-overlay hidden" id="exportModal" aria-hidden="true">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">Export Conversation</h3>
+            <button class="icon-button close-modal" aria-label="Close export">
+                <span class="icon-holder"></span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <button class="button button-outline button-block" data-export-format="md">Export as Markdown (.md)</button>
+            <button class="button button-outline button-block" data-export-format="txt">Export as Text (.txt)</button>
+            <button class="button button-outline button-block" data-export-format="json">Export as JSON (.json)</button>
+            <button class="button button-outline button-block" data-export-format="html">Export as HTML (.html)</button>
+        </div>
+    </div>
+</div>
+
+<!-- Context Menu -->
+<div class="context-menu hidden" id="chatContextMenu" aria-hidden="true">
+    <button class="context-menu-item" data-action="rename">
+        <span class="icon-holder" data-icon="pencil"></span> Rename
+    </button>
+    <button class="context-menu-item" data-action="pin">
+        <span class="icon-holder" data-icon="pin"></span> <span class="pin-text">Pin Chat</span>
+    </button>
+    <button class="context-menu-item" data-action="archive">
+        <span class="icon-holder" data-icon="archive"></span> Archive
+    </button>
+    <div class="context-menu-divider"></div>
+    <button class="context-menu-item" data-action="duplicate">
+        <span class="icon-holder" data-icon="copy"></span> Duplicate
+    </button>
+    <button class="context-menu-item" data-action="share">
+        <span class="icon-holder" data-icon="share"></span> Share
+    </button>
+    <div class="context-menu-divider"></div>
+    <button class="context-menu-item danger" data-action="delete">
+        <span class="icon-holder" data-icon="trash"></span> Delete
+    </button>
+</div>
+
+<!-- Drop Overlay -->
+<div class="drop-overlay hidden" id="dropOverlay">
+    <div class="drop-overlay-content">
+        <span class="icon-holder" data-icon="upload"></span>
+        <span>Drop files to attach</span>
+    </div>
+</div>
+
+<div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+<div id="modalRoot"></div>
+<script type="module" src="js/app.js"></script>
 </body>
 </html>

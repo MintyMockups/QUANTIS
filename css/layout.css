@@ -1,27 +1,121 @@
-body{
-
-    background:var(--bg);
-
-    color:var(--text);
-
-    font-family:"Inter",sans-serif;
-
+/* ============= BASE LAYOUT ============= */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.app{
-
-    display:flex;
-
-    height:100vh;
-
+.app {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
-.main{
+.workspace {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: var(--surface);
+    position: relative;
+}
 
-    flex:1;
+/* ============= COMMON COMPONENTS ============= */
+.hidden {
+    display: none !important;
+}
 
-    display:flex;
+/* Buttons */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    border: 1px solid transparent;
+    user-select: none;
+    transition: background var(--transition-fast), 
+                border-color var(--transition-fast), 
+                color var(--transition-fast),
+                transform var(--transition-fast);
+}
 
-    flex-direction:column;
+.button:active:not(:disabled) {
+    transform: scale(0.98);
+}
 
+.button-primary {
+    background: var(--text);
+    color: var(--text-inverse);
+}
+
+.button-primary:hover {
+    background: var(--text-secondary);
+}
+
+.button-outline {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.button-outline:hover {
+    background: var(--panel-hover);
+    border-color: var(--border-strong);
+}
+
+.button-ghost {
+    background: transparent;
+    color: var(--text);
+}
+
+.button-ghost:hover {
+    background: var(--panel-hover);
+}
+
+.button-block {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.icon-button {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.icon-button:hover {
+    background: var(--hover-overlay);
+    color: var(--text);
+}
+
+/* Utilities */
+.mobile-menu-button {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-button {
+        display: flex;
+    }
 }

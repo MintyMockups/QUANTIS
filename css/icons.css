@@ -4,6 +4,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .icon {
@@ -12,14 +13,20 @@
     display: block;
     pointer-events: none;
     user-select: none;
-    filter: brightness(0) invert(1);
+    filter: var(--icon-filter);
+    transition: filter var(--transition-base);
 }
 
-.icon-button .icon {
-    filter: none;
+.icon-holder-secondary .icon {
+    filter: var(--icon-filter-secondary);
 }
 
 .logo-icon .icon,
 .logo-icon-large .icon {
-    filter: brightness(0) invert(1);
+    filter: var(--icon-filter);
 }
+
+.icon-sm { width: 16px; height: 16px; }
+.icon-md { width: 20px; height: 20px; }
+.icon-lg { width: 28px; height: 28px; }
+.icon-xl { width: 32px; height: 32px; }

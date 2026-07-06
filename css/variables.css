@@ -102,6 +102,17 @@
     --z-overlay: 30;
     --z-modal: 40;
     --z-toast: 50;
+
+    --icon-filter: brightness(0) invert(1);
+    --icon-filter-secondary: brightness(0) invert(0.6);
+    --topbar-bg: rgba(13, 13, 13, 0.94);
+    --input-bg: rgba(13, 13, 13, 0.94);
+    --hover-overlay: rgba(255, 255, 255, 0.05);
+    --hover-overlay-strong: rgba(255, 255, 255, 0.08);
+    --message-user-bg: rgba(255, 255, 255, 0.03);
+    --message-bot-bg: transparent;
+    --scrollbar-thumb: rgba(255, 255, 255, 0.12);
+    --scrollbar-track: transparent;
 }
 
 :root[data-theme="light"] {
@@ -143,6 +154,17 @@
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.10);
     --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.12);
+
+    --icon-filter: brightness(0);
+    --icon-filter-secondary: brightness(0) saturate(0) opacity(0.5);
+    --topbar-bg: rgba(255, 255, 255, 0.94);
+    --input-bg: rgba(255, 255, 255, 0.94);
+    --hover-overlay: rgba(0, 0, 0, 0.04);
+    --hover-overlay-strong: rgba(0, 0, 0, 0.07);
+    --message-user-bg: rgba(0, 0, 0, 0.03);
+    --message-bot-bg: transparent;
+    --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+    --scrollbar-track: transparent;
 }
 
 *,

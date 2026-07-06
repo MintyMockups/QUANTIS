@@ -1,73 +1,177 @@
-.input-area{
-
-    display:flex;
-
-    gap:14px;
-
-    width:100%;
-
-    max-width:950px;
-
-    margin:0 auto;
-
-    padding:28px;
-
-    transition:.35s ease;
-
+/* ============= CHAT INPUT PANEL ============= */
+.chat-input-panel {
+    padding: 0 24px 24px;
+    background: transparent;
+    position: relative;
+    z-index: var(--z-sticky);
 }
 
-.input-area.centered{
-
-    margin-top:auto;
-
-    margin-bottom:50px;
-
+.chat-input-inner {
+    max-width: var(--input-max-width);
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
 }
 
-textarea{
-
-    flex:1;
-
-    resize:none;
-
-    border:none;
-
-    outline:none;
-
-    background:var(--panel);
-
-    color:white;
-
-    border-radius:18px;
-
-    padding:18px 22px;
-
-    font-size:16px;
-
-    border:1px solid var(--border);
-
+#attachBtn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+    margin-bottom: 2px;
 }
 
-textarea:focus{
-
-    border-color:var(--accent);
-
+#attachBtn:hover {
+    background: var(--panel-hover);
 }
 
-#send{
+.input-wrapper {
+    flex: 1;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    min-height: 52px;
+    position: relative;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
 
-    width:60px;
+.input-wrapper:focus-within {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-md);
+}
 
-    border:none;
+.message-input {
+    width: 100%;
+    min-height: 24px;
+    max-height: 200px;
+    padding: 14px 16px;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-normal);
+    font-family: var(--font-sans);
+    resize: none;
+    outline: none;
+}
 
-    border-radius:18px;
+.message-input::placeholder {
+    color: var(--text-tertiary);
+}
 
-    background:var(--accent);
+.input-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 16px 12px;
+}
 
-    color:white;
+.input-status {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    user-select: none;
+}
 
-    font-size:22px;
+.input-tools {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
 
-    cursor:pointer;
+.input-tools .icon-button {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+}
 
+#sendBtn {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    margin-bottom: 2px;
+    background: var(--accent);
+    color: var(--text-inverse);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+#sendBtn:hover:not(:disabled) {
+    background: var(--accent-hover);
+    transform: scale(1.05);
+}
+
+#sendBtn:disabled {
+    background: var(--panel-hover);
+    color: var(--text-secondary);
+    cursor: not-allowed;
+    transform: none;
+}
+
+#sendBtn:disabled .icon {
+    filter: var(--icon-filter-secondary) !important;
+}
+
+#sendBtn .icon {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* Attached Files Indicator */
+.attached-files {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 16px 0;
+}
+
+.attached-file-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    color: var(--text);
+}
+
+.attached-file-chip .remove-file {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.attached-file-chip .remove-file:hover {
+    color: var(--error);
+}
+
+.attached-file-chip .remove-file .icon-holder {
+    width: 14px;
+    height: 14px;
+}
+
+@media (max-width: 768px) {
+    .chat-input-panel {
+        padding: 0 16px 16px;
+    }
+    .input-status {
+        display: none;
+    }
 }

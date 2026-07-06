@@ -1,25 +1,80 @@
-.fade{
-
-    animation:fade .25s ease;
-
+/* Fade In */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-@keyframes fade{
-
-from{
-
-opacity:0;
-
-transform:translateY(8px);
-
+/* Slide Up */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-to{
-
-opacity:1;
-
-transform:none;
-
+/* Scale In */
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
 }
 
+/* Shimmer loading */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Subtle pulse for logo */
+@keyframes logoPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.04); opacity: 0.85; }
+}
+
+/* Spin */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Bounce subtle */
+@keyframes bounceSubtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* Dot pulse for thinking */
+@keyframes dotPulse {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in { animation: fadeIn 0.3s ease forwards; }
+.animate-slide-up { animation: slideUp 0.35s ease forwards; }
+.animate-scale-in { animation: scaleIn 0.25s ease forwards; }
+
+.loading-shimmer {
+    background: linear-gradient(90deg, var(--panel-hover) 25%, var(--border) 50%, var(--panel-hover) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    border-radius: var(--radius-md);
+}
+
+.logo-animated {
+    animation: logoPulse 3s ease-in-out infinite;
+}
+
+/* Message entry staggered animation */
+.message-enter {
+    animation: slideUp 0.3s ease forwards;
+}
+
+.message-enter:nth-child(1) { animation-delay: 0s; }
+.message-enter:nth-child(2) { animation-delay: 0.05s; }
+.message-enter:nth-child(3) { animation-delay: 0.1s; }
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
