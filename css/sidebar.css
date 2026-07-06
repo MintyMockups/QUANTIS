@@ -30,9 +30,12 @@
     justify-content:center;
 }
 
-.brand-logo img{
-    width:24px;
-    height:24px;
+.brand-logo .icon-holder{
+    width:28px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .brand-copy h2{

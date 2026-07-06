@@ -28,6 +28,8 @@ setIcon(document.querySelector("#settingsBtn .icon-holder"), "settings");
 setIcon(document.querySelector("#themeBtn .icon-holder"), "moon");
 setIcon(document.querySelector("#sidebarToggleBtn .icon-holder"), "sidebarClose");
 setIcon(document.querySelector("#closeSettings .icon-holder"), "chevron-down");
+setIcon(document.querySelector(".logo-icon"), "user");
+setIcon(document.querySelector(".badge-icon"), "sparkles");
 
 const sessions = [];
 let activeSessionId = null;
