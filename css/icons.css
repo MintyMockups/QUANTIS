@@ -1,7 +1,25 @@
-.icon{
-    width:20px;
-    height:20px;
-    display:block;
-    pointer-events:none;
-    user-select:none;
+.icon-holder {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    filter: brightness(0) invert(1);
+}
+
+.icon-button .icon {
+    filter: none;
+}
+
+.logo-icon .icon,
+.logo-icon-large .icon {
+    filter: brightness(0) invert(1);
 }

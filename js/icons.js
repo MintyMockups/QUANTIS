@@ -23,6 +23,7 @@ export const Icons = {
     user: "assets/icons/user-round.svg",
     bot: "assets/icons/bot.svg",
     sparkles: "assets/icons/sparkles.svg",
+    quantis: "assets/logos/Quantis.svg",
 
     code: "assets/icons/code.svg",
     fileCode: "assets/icons/file-code.svg",

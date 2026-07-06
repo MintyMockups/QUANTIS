@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="theme-color" content="#0D0D0D">
     <title>Quantis</title>
-
-    <link rel="stylesheet" href="css/icons.css">
+    <link rel="icon" type="image/svg+xml" href="assets/logos/Quantis.svg">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
@@ -15,144 +14,199 @@
     <link rel="stylesheet" href="css/input.css">
     <link rel="stylesheet" href="css/codeblock.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <div class="app">
-
-    <aside class="sidebar">
-
-        <div class="sidebar-top">
-            <div class="brand-row">
-                <div class="brand-logo">
-                    <span class="icon-holder logo-icon"></span>
+    <aside class="sidebar" aria-label="Sidebar">
+        <div class="sidebar-header">
+            <button id="sidebarBrand" class="sidebar-brand" aria-label="Quantis Home">
+                <span class="icon-holder logo-icon" aria-hidden="true"></span>
+                <div class="brand-text">
+                    <span class="brand-name">Quantis</span>
+                    <span class="brand-slogan">AI workspace</span>
+                    <span class="brand-meta" id="sidebarAuthHint">Guest mode</span>
                 </div>
-                <div class="brand-copy">
-                    <h2>Quantis</h2>
-                    <p>AI Companion</p>
-                </div>
-            </div>
-
-            <button id="newChatBtn" class="new-chat">
-                <span class="icon-holder"></span>
-                <span>New Chat</span>
             </button>
-
-            <div id="chatHistory" class="chat-history"></div>
+            <button id="sidebarCollapseBtn" class="icon-button sidebar-collapse" aria-label="Collapse sidebar">
+                <span class="icon-holder"></span>
+            </button>
         </div>
 
-        <div class="sidebar-bottom">
-            <button id="settingsBtn" class="settings-btn">
+        <div class="sidebar-actions">
+            <button id="newChatBtn" class="button button-primary button-block">
+                <span class="icon-holder"></span>
+                <span>New chat</span>
+            </button>
+            <div class="sidebar-search">
+                <span class="icon-holder"></span>
+                <input id="chatSearch" type="search" placeholder="Search chats" aria-label="Search chats">
+            </div>
+        </div>
+
+        <div class="sidebar-list">
+            <div id="chatHistory" class="sidebar-history" aria-label="Conversation history"></div>
+        </div>
+
+        <div class="sidebar-footer">
+            <button id="themeToggleBtn" class="button button-ghost button-block" aria-label="Toggle theme">
+                <span class="icon-holder"></span>
+                <span>Theme</span>
+            </button>
+            <button id="settingsBtn" class="button button-ghost button-block" aria-label="Open settings">
                 <span class="icon-holder"></span>
                 <span>Settings</span>
             </button>
+            <button id="profileBtn" class="button button-ghost button-block" aria-label="Profile menu">
+                <span class="icon-holder"></span>
+                <span>Sign In</span>
+            </button>
         </div>
-
     </aside>
+    <div class="sidebar-backdrop hidden" id="sidebarBackdrop" aria-hidden="true"></div>
 
-
-    <main class="main">
-
+    <main class="workspace">
         <header class="topbar">
             <div class="topbar-left">
-                <div class="brand-pill">
-                    <span class="brand-name">Quantis</span>
+                <button id="mobileMenuBtn" class="icon-button mobile-menu-button" aria-label="Open sidebar">
+                    <span class="icon-holder"></span>
+                </button>
+                <button id="topbarBrand" class="topbar-brand" aria-label="Quantis home">
+                    <span class="icon-holder logo-icon" aria-hidden="true"></span>
+                </button>
+                <div class="topbar-title">
+                    <div class="current-chat-label">New conversation</div>
+                    <div class="current-chat-subtitle">Start with a prompt or choose a suggestion.</div>
+                    <div class="topbar-sync" id="topbarSyncNote">Sign in to sync history and sessions across devices.</div>
                 </div>
-                <span class="brand-tag">Smart AI assistant for code, writing, and ideas.</span>
             </div>
-            <div class="topbar-right">
-                <button id="sidebarToggleBtn" class="icon-button" title="Toggle sidebar">
+            <div class="topbar-actions">
+                <button id="topbarSearchBtn" class="icon-button" aria-label="Search conversations">
                     <span class="icon-holder"></span>
                 </button>
-                <button id="themeBtn" class="icon-button" title="Toggle theme">
+                <button id="shareConversationBtn" class="button button-ghost" aria-label="Share conversation">
                     <span class="icon-holder"></span>
+                    <span>Share</span>
                 </button>
+                <button id="exportConversationBtn" class="button button-ghost" aria-label="Export conversation">
+                    <span class="icon-holder"></span>
+                    <span>Export</span>
+                </button>
+                <button id="signupBtn" class="button button-outline">Sign Up</button>
+                <button id="loginBtn" class="button button-primary">Sign In</button>
             </div>
         </header>
 
-
-        <section id="chatArea" class="chat-area">
-
-            <div id="hero" class="hero">
-                <div class="hero-badge">
-                    <span class="icon-holder badge-icon"></span>
-                    <span>Designed for fast and friendly AI feedback</span>
+        <section class="chat-panel" aria-live="polite">
+            <div class="landing-state" id="landingState">
+                <div class="landing-logo">
+                    <span class="icon-holder logo-icon-large" aria-hidden="true"></span>
                 </div>
-
-                <h1>Welcome to Quantis</h1>
-
-                <p>Ask anything. Generate content. Debug code. Brainstorm ideas with a modern AI interface built around your favorite icons.</p>
-
-                <div class="starter-prompts">
-                    <button data-prompt="Write a modern landing page hero copy for an AI assistant.">Generate code</button>
-                    <button data-prompt="Explain the difference between Git merge and rebase.">Explain something</button>
-                    <button data-prompt="Brainstorm five product ideas for a developer tool.">Brainstorm ideas</button>
-                    <button data-prompt="Write a friendly email introduction for a new client.">Write content</button>
+                <div class="landing-copy">
+                    <p class="eyebrow">Quantis</p>
+                    <h1>I can help you write code, solve problems, brainstorm ideas and much more.</h1>
+                    <p class="subtitle">A premium AI workspace with thoughtful interactions, clean structure, and responsive performance.</p>
                 </div>
-
-                <div id="heroInputWrapper" class="hero-input-wrapper">
-                    <textarea id="heroPrompt" placeholder="Ask Quantis anything..." rows="1"></textarea>
-                    <button id="heroSend" class="hero-send" aria-label="Send message"></button>
+                <div class="starter-prompts landing-prompts">
+                    <button class="prompt-chip" data-prompt="Generate code for a React login page">Generate code</button>
+                    <button class="prompt-chip" data-prompt="Explain the difference between async/await and promises">Explain something</button>
+                    <button class="prompt-chip" data-prompt="Debug this JavaScript function">Debug code</button>
+                    <button class="prompt-chip" data-prompt="Write an article about AI best practices">Write an article</button>
+                    <button class="prompt-chip" data-prompt="Plan a project roadmap for a SaaS product">Plan a project</button>
+                    <button class="prompt-chip" data-prompt="Create a SQL query to join users and orders">Create SQL query</button>
+                    <button class="prompt-chip" data-prompt="Generate a Python script to resize images">Create Python script</button>
+                    <button class="prompt-chip" data-prompt="Improve this paragraph for clarity and tone">Improve writing</button>
                 </div>
             </div>
 
-            <div id="messages" class="messages hidden"></div>
-
+            <div class="messages-container hidden" id="messagesContainer"></div>
         </section>
 
-        <footer id="inputArea" class="input-area centered hidden">
-            <textarea id="prompt" placeholder="Ask Quantis..." rows="1"></textarea>
-            <button id="send" aria-label="Send message"></button>
-        </footer>
-
-    </main>
-
-    <div id="settingsPanel" class="settings-panel hidden">
-        <div id="settingsBackdrop" class="settings-backdrop"></div>
-        <aside class="settings-drawer">
-            <div class="settings-header">
-                <div>
-                    <h2>Settings</h2>
-                    <p>Personalize your Quantis workspace.</p>
+        <footer class="chat-input-panel" id="chatInputPanel">
+            <div class="chat-input-inner">
+                <button id="attachBtn" class="icon-button" aria-label="Attach file">
+                    <span class="icon-holder"></span>
+                </button>
+                <div class="input-wrapper">
+                    <textarea id="messageInput" class="message-input" role="textbox" aria-label="Ask Quantis" placeholder="Ask Quantis..." rows="1"></textarea>
+                    <div class="input-footer">
+                        <div class="input-status">Press Enter to send, Shift+Enter for new line</div>
+                        <div class="input-tools">
+                            <button id="imageBtn" class="icon-button" aria-label="Insert image"><span class="icon-holder"></span></button>
+                            <button id="voiceBtn" class="icon-button" aria-label="Voice input"><span class="icon-holder"></span></button>
+                        </div>
+                    </div>
                 </div>
-                <button id="closeSettings" class="icon-button" aria-label="Close settings">
+                <button id="sendBtn" class="button button-primary button-circle" aria-label="Send message">
                     <span class="icon-holder"></span>
                 </button>
             </div>
-
-            <div class="settings-group">
-                <h3>Theme</h3>
-                <div class="toggle-row">
-                    <span>Dark mode</span>
-                    <label class="switch">
-                        <input id="themeToggle" type="checkbox">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="settings-group">
-                <h3>Assistant mode</h3>
-                <div class="mode-grid">
-                    <button class="mode-btn active" data-mode="creative">Creative</button>
-                    <button class="mode-btn" data-mode="balanced">Balanced</button>
-                    <button class="mode-btn" data-mode="focused">Focused</button>
-                </div>
-            </div>
-
-            <div class="settings-group">
-                <h3>Chat controls</h3>
-                <button id="clearChatsBtn" class="primary-btn">Clear all chats</button>
-            </div>
-        </aside>
-    </div>
-
+        </footer>
+    </main>
 </div>
 
-<script type="module" src="js/app.js"></script>
+<div class="settings-panel hidden" id="settingsPanel" aria-hidden="true">
+    <div class="settings-backdrop" id="settingsBackdrop"></div>
+    <aside class="settings-drawer" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+        <div class="settings-header">
+            <div>
+                <p class="eyebrow">Workspace</p>
+                <h2 id="settingsTitle">Settings</h2>
+            </div>
+            <button id="closeSettings" class="icon-button" aria-label="Close settings">
+                <span class="icon-holder"></span>
+            </button>
+        </div>
+        <div class="settings-body">
+            <div class="settings-section">
+                <div class="settings-section-title-row">
+                    <div>
+                        <div class="settings-section-title">Account</div>
+                        <p class="settings-section-copy">Sign in to save sessions, sync history, and unlock profile controls.</p>
+                    </div>
+                    <span id="authStatus" class="auth-status">Signed out</span>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-avatar" id="profileAvatar">Q</div>
+                    <div class="profile-details">
+                        <p class="profile-name" id="profileName">Guest</p>
+                        <p class="profile-email" id="profileEmail">Continue as a guest to keep exploring.</p>
+                    </div>
+                </div>
+                <div class="auth-actions">
+                    <button id="settingsSignInBtn" type="button" class="button button-primary">Sign In</button>
+                    <button id="settingsSignUpBtn" type="button" class="button button-outline">Create account</button>
+                </div>
+            </div>
+            <div class="settings-section">
+                <div class="settings-section-title">Theme</div>
+                <div class="settings-rows">
+                    <button type="button" class="button button-outline" data-theme="dark">Dark</button>
+                    <button type="button" class="button button-outline" data-theme="light">Light</button>
+                </div>
+            </div>
+            <div class="settings-section">
+                <div class="settings-section-title">Mode</div>
+                <div class="settings-pill-group">
+                    <button type="button" class="button button-ghost mode-btn active" data-mode="balanced">Balanced</button>
+                    <button type="button" class="button button-ghost mode-btn" data-mode="creative">Creative</button>
+                    <button type="button" class="button button-ghost mode-btn" data-mode="precise">Precise</button>
+                </div>
+            </div>
+            <div class="settings-section">
+                <div class="settings-section-title">Quick actions</div>
+                <button id="clearChatsBtn" type="button" class="button button-outline">Clear history</button>
+                <p class="settings-note">Reset the sidebar and start a fresh chat experience.</p>
+            </div>
+        </div>
+    </aside>
+</div>
 
+<div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+<div id="modalRoot"></div>
+<script type="module" src="js/app.js"></script>
 </body>
 </html>

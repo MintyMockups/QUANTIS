@@ -1,50 +1,86 @@
-.input-area{
+.chat-input-panel{
+    position:sticky;
+    bottom:0;
+    background:rgba(9,9,13,.94);
+    border-top:1px solid rgba(255,255,255,.06);
+    backdrop-filter:blur(20px);
+    z-index:20;
+}
+
+.chat-input-inner{
     display:flex;
+    align-items:flex-end;
     gap:14px;
     width:100%;
-    max-width:950px;
+    max-width:980px;
     margin:0 auto;
-    padding:22px 40px 28px;
-    transition:.35s ease;
+    padding:18px 24px 24px;
+    border-radius:28px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.06);
+    box-shadow:0 24px 60px rgba(0,0,0,.12);
 }
 
-.input-area.centered{
-    margin-top:auto;
-    margin-bottom:28px;
-}
-
-textarea{
+.input-wrapper{
     flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.message-input{
+    width:100%;
+    min-height:64px;
     resize:none;
-    border:none;
-    outline:none;
-    background:#141418;
+    border-radius:20px;
+    border:1px solid var(--border);
+    background:var(--panel-hover);
     color:var(--text);
-    border-radius:24px;
-    padding:18px 22px;
+    padding:18px 20px;
     font-size:16px;
-    border:1px solid #38383f;
-    min-height:64px;
+    transition:border-color .2s ease, background .2s ease;
 }
 
-textarea:focus{
-    border-color:#58585f;
+.message-input:focus{
+    outline:none;
+    border-color:rgba(255,255,255,.18);
 }
 
-#send{
-    width:64px;
-    min-height:64px;
+.input-footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+}
+
+.input-status{
+    color:var(--text-secondary);
+    font-size:13px;
+}
+
+.input-tools{
+    display:flex;
+    gap:10px;
+}
+
+#sendBtn{
+    width:56px;
+    min-height:56px;
     border:none;
-    border-radius:22px;
-    background:#27272b;
-    color:white;
+    border-radius:18px;
+    background:linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.08));
+    color:var(--text);
     display:flex;
     align-items:center;
     justify-content:center;
     cursor:pointer;
-    transition:.2s;
+    transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
+    box-shadow:0 16px 28px rgba(0,0,0,.12);
 }
 
-#send:hover{
-    filter:brightness(1.05);
+#sendBtn:hover{
+    transform:translateY(-1px);
+    background:rgba(255,255,255,.11);
+    box-shadow:0 20px 32px rgba(0,0,0,.14);
 }
+
