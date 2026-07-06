@@ -1,109 +1,139 @@
 .sidebar{
-
-    width:280px;
-
+    width:320px;
     background:var(--panel);
-
     border-right:1px solid var(--border);
-
     display:flex;
-
     flex-direction:column;
-
 }
 
 .sidebar-top{
+    padding:24px 22px 0;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
 
-    padding:18px;
+.brand-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
 
+.brand-logo{
+    width:48px;
+    height:48px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#5b8cff,#4b6ed6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.brand-logo img{
+    width:22px;
+    height:22px;
+}
+
+.brand-copy h2{
+    margin:0;
+    font-size:18px;
+    font-weight:700;
+}
+
+.brand-copy p{
+    margin:2px 0 0;
+    font-size:13px;
+    color:var(--text-secondary);
 }
 
 .new-chat{
-
     width:100%;
-
-    height:52px;
-
+    min-height:52px;
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     gap:10px;
-
-    background:transparent;
-
+    background:rgba(91,140,255,.12);
     color:var(--text);
-
-    border:1px solid var(--border);
-
-    border-radius:14px;
-
+    border:1px solid rgba(91,140,255,.35);
+    border-radius:16px;
     cursor:pointer;
-
     transition:.2s;
-
-    font-size:16px;
-
-    font-weight:500;
-
+    font-size:15px;
+    font-weight:600;
 }
 
 .new-chat:hover{
-
-    background:var(--panel-light);
-
+    background:rgba(91,140,255,.18);
 }
 
 .chat-history{
-
     flex:1;
-
-    padding:18px;
-
+    padding:0 22px 20px;
     overflow:auto;
+    display:grid;
+    gap:12px;
+}
 
+.chat-card{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 16px;
+    border-radius:18px;
+    background:var(--panel-light);
+    color:var(--text-secondary);
+    cursor:pointer;
+    transition:.2s;
+    border:1px solid transparent;
+}
+
+.chat-card:hover{
+    background:rgba(255,255,255,.05);
+    border-color:var(--border);
+}
+
+.chat-card.active{
+    background:rgba(91,140,255,.16);
+    color:var(--text);
+    border-color:rgba(91,140,255,.35);
+}
+
+.chat-card .icon-holder{
+    width:28px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.chat-card-title{
+    font-size:14px;
+    font-weight:600;
 }
 
 .sidebar-bottom{
-
-    padding:18px;
-
+    padding:18px 22px 26px;
 }
 
 .settings-btn{
-
     width:100%;
-
-    height:48px;
-
+    height:52px;
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     gap:10px;
-
-    background:none;
-
+    background:var(--panel-light);
     border:none;
-
     color:var(--text-secondary);
-
     cursor:pointer;
-
-    border-radius:12px;
-
+    border-radius:16px;
     transition:.2s;
-
+    font-size:15px;
+    font-weight:600;
 }
 
 .settings-btn:hover{
-
-    background:var(--panel-light);
-
+    background:rgba(255,255,255,.05);
     color:var(--text);
-
 }

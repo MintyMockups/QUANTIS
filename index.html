@@ -26,33 +26,29 @@
     <aside class="sidebar">
 
         <div class="sidebar-top">
+            <div class="brand-row">
+                <div class="brand-logo">
+                    <img src="assets/icons/sparkles.svg" alt="Quantis logo">
+                </div>
+                <div class="brand-copy">
+                    <h2>Quantis</h2>
+                    <p>AI Companion</p>
+                </div>
+            </div>
 
             <button id="newChatBtn" class="new-chat">
-
                 <span class="icon-holder"></span>
-
                 <span>New Chat</span>
-
             </button>
 
-        </div>
-
-        <div class="chat-history">
-
+            <div id="chatHistory" class="chat-history"></div>
         </div>
 
         <div class="sidebar-bottom">
-
             <button id="settingsBtn" class="settings-btn">
-
                 <span class="icon-holder"></span>
-
                 <span>Settings</span>
-
-                </button>
-
             </button>
-
         </div>
 
     </aside>
@@ -61,69 +57,91 @@
     <main class="main">
 
         <header class="topbar">
-
-            <div class="brand-small">
-
-                <!-- Logo goes here later -->
-                <span class="brand-name">Quantis</span>
-
+            <div class="topbar-left">
+                <div class="brand-pill">
+                    <span class="brand-name">Quantis</span>
+                </div>
+                <span class="brand-tag">Smart AI assistant for code, writing, and ideas.</span>
             </div>
-
+            <div class="topbar-right">
+                <button id="themeBtn" class="icon-button" title="Toggle theme">
+                    <span class="icon-holder"></span>
+                </button>
+            </div>
         </header>
 
 
-        <section id="chatArea" class="chat-area new-chat">
+        <section id="chatArea" class="chat-area">
 
             <div id="hero" class="hero">
-
-                <div class="hero-logo">
-
-                    <!-- Your animated logo later -->
-
+                <div class="hero-badge">
+                    <img src="assets/icons/sparkles.svg" alt="Sparkle icon">
+                    <span>Designed for fast and friendly AI feedback</span>
                 </div>
 
-                <h1>Quantis</h1>
+                <h1>Welcome to Quantis</h1>
 
-                <p>
-                    I can help with programming, writing,
-                    brainstorming, debugging, learning,
-                    and much more.
-                </p>
+                <p>Ask anything. Generate content. Debug code. Brainstorm ideas with a modern AI interface built around your favorite icons.</p>
 
                 <div class="starter-prompts">
-
-                    <button>Generate code</button>
-
-                    <button>Explain something</button>
-
-                    <button>Brainstorm ideas</button>
-
-                    <button>Write content</button>
-
+                    <button data-prompt="Write a modern landing page hero copy for an AI assistant.">Generate code</button>
+                    <button data-prompt="Explain the difference between Git merge and rebase.">Explain something</button>
+                    <button data-prompt="Brainstorm five product ideas for a developer tool.">Brainstorm ideas</button>
+                    <button data-prompt="Write a friendly email introduction for a new client.">Write content</button>
                 </div>
-
             </div>
 
-
-            <div id="messages"></div>
+            <div id="messages" class="messages hidden"></div>
 
         </section>
 
-
         <footer id="inputArea" class="input-area centered">
-
-            <textarea
-                id="prompt"
-                placeholder="Ask Quantis..."
-                rows="1"
-            ></textarea>
-
-            <button id="send"></button>
-
+            <textarea id="prompt" placeholder="Ask Quantis..." rows="1"></textarea>
+            <button id="send" aria-label="Send message"></button>
         </footer>
 
     </main>
-    
+
+    <div id="settingsPanel" class="settings-panel hidden">
+        <div id="settingsBackdrop" class="settings-backdrop"></div>
+        <aside class="settings-drawer">
+            <div class="settings-header">
+                <div>
+                    <h2>Settings</h2>
+                    <p>Personalize your Quantis workspace.</p>
+                </div>
+                <button id="closeSettings" class="icon-button" aria-label="Close settings">
+                    <span class="icon-holder"></span>
+                </button>
+            </div>
+
+            <div class="settings-group">
+                <h3>Theme</h3>
+                <div class="toggle-row">
+                    <span>Dark mode</span>
+                    <label class="switch">
+                        <input id="themeToggle" type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h3>Assistant mode</h3>
+                <div class="mode-grid">
+                    <button class="mode-btn active" data-mode="creative">Creative</button>
+                    <button class="mode-btn" data-mode="balanced">Balanced</button>
+                    <button class="mode-btn" data-mode="focused">Focused</button>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h3>Chat controls</h3>
+                <button id="clearChatsBtn" class="primary-btn">Clear all chats</button>
+            </div>
+        </aside>
+    </div>
+
 </div>
 
 <script type="module" src="js/app.js"></script>

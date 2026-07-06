@@ -1,73 +1,50 @@
 .input-area{
-
     display:flex;
-
     gap:14px;
-
     width:100%;
-
     max-width:950px;
-
     margin:0 auto;
-
-    padding:28px;
-
+    padding:22px 40px 28px;
     transition:.35s ease;
-
 }
 
 .input-area.centered{
-
     margin-top:auto;
-
-    margin-bottom:50px;
-
+    margin-bottom:28px;
 }
 
 textarea{
-
     flex:1;
-
     resize:none;
-
     border:none;
-
     outline:none;
-
     background:var(--panel);
-
     color:white;
-
-    border-radius:18px;
-
+    border-radius:24px;
     padding:18px 22px;
-
     font-size:16px;
-
     border:1px solid var(--border);
-
+    min-height:64px;
 }
 
 textarea:focus{
-
     border-color:var(--accent);
-
 }
 
 #send{
-
-    width:60px;
-
+    width:64px;
+    min-height:64px;
     border:none;
-
-    border-radius:18px;
-
+    border-radius:22px;
     background:var(--accent);
-
     color:white;
-
-    font-size:22px;
-
+    display:flex;
+    align-items:center;
+    justify-content:center;
     cursor:pointer;
+    transition:.2s;
+}
 
+#send:hover{
+    filter:brightness(1.05);
 }
