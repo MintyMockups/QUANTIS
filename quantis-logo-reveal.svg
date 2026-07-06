@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <style>
+    .logo-group {
+      transform-origin: 100px 100px;
+      animation: logo-settle 1.7s forwards;
+    }
+
+    .q-path {
+      opacity: 0;
+      stroke-dasharray: 430;
+      stroke-dashoffset: 430;
+      animation: q-appear 1.7s forwards;
+    }
+
+    .sparkle {
+      opacity: 0;
+      transform-origin: 135.355px 64.645px;
+      animation: 
+        s-opacity 1.7s linear forwards,
+        s-path 1.7s forwards,
+        s-breathe 4s 1.7s ease-in-out infinite;
+    }
+
+    @keyframes s-opacity {
+      0%, 11.76% { opacity: 0; } 
+      11.77%, 20.59% { opacity: 1; } 
+      26.47% { opacity: 0.6; } 
+      32.35%, 100% { opacity: 1; }
+    }
+
+    @keyframes s-path {
+      0%, 11.76% { 
+        d: path('M 135.355 64.545 Q 135.455 64.545 135.455 64.645 Q 135.455 64.745 135.355 64.745 Q 135.255 64.745 135.255 64.645 Q 135.255 64.545 135.355 64.545 Z'); 
+        animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      20.59% { 
+        d: path('M 135.355 58.645 Q 141.355 58.645 141.355 64.645 Q 141.355 70.645 135.355 70.645 Q 129.355 70.645 129.355 64.645 Q 129.355 58.645 135.355 58.645 Z'); 
+        animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      32.35%, 100% { 
+        d: path('M 135.355 46.645 Q 135.355 64.645 153.355 64.645 Q 135.355 64.645 135.355 82.645 Q 135.355 64.645 117.355 64.645 Q 135.355 64.645 135.355 46.645 Z'); 
+      }
+    }
+
+    @keyframes q-appear {
+      0%, 32.34% { 
+        opacity: 0; 
+        stroke-dashoffset: 430; 
+      }
+      32.35% { 
+        opacity: 1; 
+        stroke-dashoffset: 430; 
+        animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); 
+      }
+      85.29%, 100% { 
+        opacity: 1; 
+        stroke-dashoffset: 0; 
+      }
+    }
+
+    @keyframes logo-settle {
+      0%, 85.29% { 
+        transform: scale(1); 
+        animation-timing-function: ease-in-out; 
+      }
+      91.18% { 
+        transform: scale(0.98); 
+        animation-timing-function: ease-in-out; 
+      }
+      96.47% { 
+        transform: scale(1.01); 
+        animation-timing-function: ease-in-out; 
+      }
+      100% { 
+        transform: scale(1); 
+      }
+    }
+
+    @keyframes s-breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+  </style>
+
+  <rect width="200" height="200" fill="#050505" />
+  
+  <g class="logo-group">
+    <!-- The stylized Q path -->
+    <path class="q-path"
+          d="M 135.355 64.645 
+             A 50 50 0 0 1 64.645 135.355 
+             A 50 50 0 0 1 135.355 64.645 
+             A 50 50 0 0 1 135.355 135.355 
+             L 160 160" 
+          stroke="#ffffff" 
+          stroke-width="8" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          fill="none" />
+          
+    <!-- The four-point sparkle -->
+    <path class="sparkle"
+          fill="#ffffff"
+          d="M 135.355 64.545 Q 135.455 64.545 135.455 64.645 Q 135.455 64.745 135.355 64.745 Q 135.255 64.745 135.255 64.645 Q 135.255 64.545 135.355 64.545 Z" />
+  </g>
+</svg>
