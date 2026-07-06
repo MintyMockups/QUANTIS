@@ -21,18 +21,18 @@
 }
 
 .brand-logo{
-    width:48px;
-    height:48px;
+    width:60px;
+    height:60px;
     border-radius:18px;
-    background:var(--panel-light);
+    background:transparent;
     display:flex;
     align-items:center;
     justify-content:center;
 }
 
 .brand-logo .icon-holder{
-    width:28px;
-    height:28px;
+    width:34px;
+    height:34px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -127,8 +127,8 @@
     align-items:center;
     justify-content:center;
     gap:10px;
-    background:#1d1d23;
-    border:none;
+    background:transparent;
+    border:1px solid var(--border);
     color:var(--text-secondary);
     cursor:pointer;
     border-radius:16px;

@@ -152,6 +152,11 @@ function toggleSidebar() {
     setIcon(document.querySelector("#sidebarToggleBtn .icon-holder"), collapsed ? "sidebarOpen" : "sidebarClose");
 }
 
+function toggleTheme() {
+    const currentIsDark = document.documentElement.dataset.theme !== "light";
+    applyTheme(!currentIsDark);
+}
+
 function clearChats() {
     sessions.splice(1);
     activeSessionId = sessions[0].id;
@@ -187,9 +192,7 @@ settingsButton.addEventListener("click", openSettings);
 closeSettingsButton.addEventListener("click", closeSettings);
 settingsBackdrop.addEventListener("click", closeSettings);
 
-themeButton.addEventListener("click", () => {
-    applyTheme(!themeToggle.checked);
-});
+themeButton.addEventListener("click", toggleTheme);
 
 themeToggle.addEventListener("input", () => {
     applyTheme(themeToggle.checked);

@@ -19,3 +19,21 @@
     --max-width:850px;
 
 }
+
+:root[data-theme="light"]{
+
+    --bg:#F3F3F5;
+
+    --panel:#FFFFFF;
+
+    --panel-light:#F9F9FB;
+
+    --border:#E1E1E8;
+
+    --text:#111214;
+
+    --text-secondary:#6F6F77;
+
+    --accent:#44474F;
+
+}
