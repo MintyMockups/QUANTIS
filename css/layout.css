@@ -19,6 +19,19 @@ body{
     min-height:100vh;
 }
 
+.app.sidebar-collapsed .sidebar{
+    width:0;
+    min-width:0;
+    overflow:hidden;
+    border-right:none;
+}
+
+.app.sidebar-collapsed .sidebar-top,
+.app.sidebar-collapsed .chat-history,
+.app.sidebar-collapsed .sidebar-bottom{
+    display:none;
+}
+
 .main{
     flex:1;
     display:flex;

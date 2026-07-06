@@ -28,7 +28,7 @@
         <div class="sidebar-top">
             <div class="brand-row">
                 <div class="brand-logo">
-                    <img src="assets/icons/sparkles.svg" alt="Quantis logo">
+                    <img src="assets/logos/Quantis.svg" alt="Quantis logo">
                 </div>
                 <div class="brand-copy">
                     <h2>Quantis</h2>
@@ -64,6 +64,9 @@
                 <span class="brand-tag">Smart AI assistant for code, writing, and ideas.</span>
             </div>
             <div class="topbar-right">
+                <button id="sidebarToggleBtn" class="icon-button" title="Toggle sidebar">
+                    <span class="icon-holder"></span>
+                </button>
                 <button id="themeBtn" class="icon-button" title="Toggle theme">
                     <span class="icon-holder"></span>
                 </button>
@@ -89,13 +92,18 @@
                     <button data-prompt="Brainstorm five product ideas for a developer tool.">Brainstorm ideas</button>
                     <button data-prompt="Write a friendly email introduction for a new client.">Write content</button>
                 </div>
+
+                <div id="heroInputWrapper" class="hero-input-wrapper">
+                    <textarea id="heroPrompt" placeholder="Ask Quantis anything..." rows="1"></textarea>
+                    <button id="heroSend" class="hero-send" aria-label="Send message"></button>
+                </div>
             </div>
 
             <div id="messages" class="messages hidden"></div>
 
         </section>
 
-        <footer id="inputArea" class="input-area centered">
+        <footer id="inputArea" class="input-area centered hidden">
             <textarea id="prompt" placeholder="Ask Quantis..." rows="1"></textarea>
             <button id="send" aria-label="Send message"></button>
         </footer>

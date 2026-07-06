@@ -1,12 +1,17 @@
 import { setIcon, Icons } from "./icons.js";
 
 const sendButton = document.getElementById("send");
+const heroSendButton = document.getElementById("heroSend");
 const newChatButton = document.getElementById("newChatBtn");
 const settingsButton = document.getElementById("settingsBtn");
+const sidebarToggleBtn = document.getElementById("sidebarToggleBtn");
 const chatHistoryEl = document.getElementById("chatHistory");
 const messagesEl = document.getElementById("messages");
 const promptInput = document.getElementById("prompt");
+const heroPrompt = document.getElementById("heroPrompt");
 const heroSection = document.getElementById("hero");
+const inputArea = document.getElementById("inputArea");
+const appRoot = document.querySelector(".app");
 const settingsPanel = document.getElementById("settingsPanel");
 const settingsBackdrop = document.getElementById("settingsBackdrop");
 const closeSettingsButton = document.getElementById("closeSettings");
@@ -17,25 +22,15 @@ const starterButtons = document.querySelectorAll(".starter-prompts button");
 const modeButtons = document.querySelectorAll(".mode-btn");
 
 setIcon(sendButton, "send");
+setIcon(heroSendButton, "send");
 setIcon(document.querySelector("#newChatBtn .icon-holder"), "plus");
 setIcon(document.querySelector("#settingsBtn .icon-holder"), "settings");
 setIcon(document.querySelector("#themeBtn .icon-holder"), "moon");
+setIcon(document.querySelector("#sidebarToggleBtn .icon-holder"), "sidebarClose");
 setIcon(document.querySelector("#closeSettings .icon-holder"), "chevron-down");
 
-const sessions = [
-    {
-        id: "welcome",
-        title: "Getting started",
-        messages: [
-            {
-                role: "bot",
-                text: "Hi there! I am Quantis, your AI assistant. Try the prompt buttons or type a question to begin."
-            }
-        ]
-    }
-];
-
-let activeSessionId = "welcome";
+const sessions = [];
+let activeSessionId = null;
 let currentMode = "balanced";
 
 function findSession(id) {
@@ -108,14 +103,16 @@ function selectSession(sessionId) {
 }
 
 function createNewSession() {
-    const title = "New conversation";
+    const title = "New chat";
     const id = `chat-${Date.now()}`;
     const session = { id, title, messages: [] };
     sessions.unshift(session);
     activeSessionId = id;
     renderChatHistory();
     renderMessages();
-    promptInput.focus();
+    promptInput.value = "";
+    heroPrompt.value = "";
+    heroPrompt.focus();
 }
 
 function sendMessage(prompt) {
@@ -126,30 +123,10 @@ function sendMessage(prompt) {
     session.messages.push({ role: "user", text: prompt });
     renderMessages();
     promptInput.value = "";
+    heroPrompt.value = "";
     promptInput.focus();
 
-    const reply = {
-        role: "bot",
-        text: "Analyzing your request..."
-    };
-    session.messages.push(reply);
-    renderMessages();
-
-    window.setTimeout(() => {
-        const updated = session.messages[session.messages.length - 1];
-        updated.text = generateResponse(prompt);
-        renderMessages();
-    }, 900);
-}
-
-function generateResponse(prompt) {
-    if (currentMode === "creative") {
-        return `Creative mode reply: ${prompt} — here is a fresh idea tailored for you.`;
-    }
-    if (currentMode === "focused") {
-        return `Focused mode response: ${prompt} — precise and practical guidance for your request.`;
-    }
-    return `Balanced mode response: ${prompt} — concise support with a thoughtful tone.`;
+    // TODO: integrate with your backend here and append an assistant response when available.
 }
 
 function openSettings() {
@@ -168,6 +145,11 @@ function applyTheme(isDark) {
     setIcon(document.querySelector("#themeBtn .icon-holder"), isDark ? "moon" : "sun");
 }
 
+function toggleSidebar() {
+    const collapsed = appRoot.classList.toggle("sidebar-collapsed");
+    setIcon(document.querySelector("#sidebarToggleBtn .icon-holder"), collapsed ? "sidebarOpen" : "sidebarClose");
+}
+
 function clearChats() {
     sessions.splice(1);
     activeSessionId = sessions[0].id;
@@ -181,18 +163,21 @@ function clearChats() {
     renderMessages();
 }
 
-newChatButton.addEventListener("click", () => {
-    createNewSession();
-});
-
-sendButton.addEventListener("click", () => {
-    sendMessage(promptInput.value);
-});
+newChatButton.addEventListener("click", createNewSession);
+heroSendButton.addEventListener("click", () => sendMessage(heroPrompt.value));
+sendButton.addEventListener("click", () => sendMessage(promptInput.value));
 
 promptInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter" && !event.shiftKey) {
         event.preventDefault();
         sendMessage(promptInput.value);
+    }
+});
+
+heroPrompt.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage(heroPrompt.value);
     }
 });
 
@@ -209,11 +194,13 @@ themeToggle.addEventListener("input", () => {
 });
 
 clearChatsButton.addEventListener("click", clearChats);
+sidebarToggleBtn.addEventListener("click", toggleSidebar);
 
 starterButtons.forEach((button) => {
     button.addEventListener("click", () => {
         promptInput.value = button.dataset.prompt;
-        promptInput.focus();
+        heroPrompt.value = button.dataset.prompt;
+        heroPrompt.focus();
     });
 });
 
@@ -226,8 +213,7 @@ modeButtons.forEach((button) => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-    renderChatHistory();
-    renderMessages();
+    createNewSession();
     applyTheme(true);
 });
 
