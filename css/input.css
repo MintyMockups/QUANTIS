@@ -1,86 +1,73 @@
-.chat-input-panel{
-    position:sticky;
-    bottom:0;
-    background:rgba(9,9,13,.94);
-    border-top:1px solid rgba(255,255,255,.06);
-    backdrop-filter:blur(20px);
-    z-index:20;
-}
+.input-area{
 
-.chat-input-inner{
     display:flex;
-    align-items:flex-end;
+
     gap:14px;
+
     width:100%;
-    max-width:980px;
+
+    max-width:950px;
+
     margin:0 auto;
-    padding:18px 24px 24px;
-    border-radius:28px;
-    background:rgba(255,255,255,.03);
-    border:1px solid rgba(255,255,255,.06);
-    box-shadow:0 24px 60px rgba(0,0,0,.12);
+
+    padding:28px;
+
+    transition:.35s ease;
+
 }
 
-.input-wrapper{
+.input-area.centered{
+
+    margin-top:auto;
+
+    margin-bottom:50px;
+
+}
+
+textarea{
+
     flex:1;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
 
-.message-input{
-    width:100%;
-    min-height:64px;
     resize:none;
-    border-radius:20px;
-    border:1px solid var(--border);
-    background:var(--panel-hover);
-    color:var(--text);
-    padding:18px 20px;
-    font-size:16px;
-    transition:border-color .2s ease, background .2s ease;
-}
 
-.message-input:focus{
-    outline:none;
-    border-color:rgba(255,255,255,.18);
-}
-
-.input-footer{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-}
-
-.input-status{
-    color:var(--text-secondary);
-    font-size:13px;
-}
-
-.input-tools{
-    display:flex;
-    gap:10px;
-}
-
-#sendBtn{
-    width:56px;
-    min-height:56px;
     border:none;
+
+    outline:none;
+
+    background:var(--panel);
+
+    color:white;
+
     border-radius:18px;
-    background:linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.08));
-    color:var(--text);
-    display:flex;
-    align-items:center;
-    justify-content:center;
+
+    padding:18px 22px;
+
+    font-size:16px;
+
+    border:1px solid var(--border);
+
+}
+
+textarea:focus{
+
+    border-color:var(--accent);
+
+}
+
+#send{
+
+    width:60px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:var(--accent);
+
+    color:white;
+
+    font-size:22px;
+
     cursor:pointer;
-    transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
-    box-shadow:0 16px 28px rgba(0,0,0,.12);
-}
 
-#sendBtn:hover{
-    transform:translateY(-1px);
-    background:rgba(255,255,255,.11);
-    box-shadow:0 20px 32px rgba(0,0,0,.14);
 }
-
