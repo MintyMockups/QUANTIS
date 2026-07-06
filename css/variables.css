@@ -1,18 +1,18 @@
 :root{
 
-    --bg:#0D0D0D;
+    --bg:#09090B;
 
-    --panel:#171717;
+    --panel:#111115;
 
-    --panel-light:#1F1F1F;
+    --panel-light:#1F1F23;
 
-    --border:#2A2A2A;
+    --border:#2E2E35;
 
     --text:#F5F5F5;
 
-    --text-secondary:#9A9A9A;
+    --text-secondary:#A3A3A8;
 
-    --accent:#5B8CFF;
+    --accent:#D4D4D8;
 
     --radius:18px;
 

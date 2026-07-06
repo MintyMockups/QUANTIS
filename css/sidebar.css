@@ -24,15 +24,15 @@
     width:48px;
     height:48px;
     border-radius:18px;
-    background:linear-gradient(135deg,#5b8cff,#4b6ed6);
+    background:var(--panel-light);
     display:flex;
     align-items:center;
     justify-content:center;
 }
 
 .brand-logo img{
-    width:22px;
-    height:22px;
+    width:24px;
+    height:24px;
 }
 
 .brand-copy h2{
@@ -54,9 +54,9 @@
     align-items:center;
     justify-content:center;
     gap:10px;
-    background:rgba(91,140,255,.12);
+    background:var(--panel-light);
     color:var(--text);
-    border:1px solid rgba(91,140,255,.35);
+    border:1px solid var(--border);
     border-radius:16px;
     cursor:pointer;
     transition:.2s;
@@ -65,7 +65,7 @@
 }
 
 .new-chat:hover{
-    background:rgba(91,140,255,.18);
+    background:#2b2b33;
 }
 
 .chat-history{
@@ -95,9 +95,9 @@
 }
 
 .chat-card.active{
-    background:rgba(91,140,255,.16);
+    background:rgba(255,255,255,.06);
     color:var(--text);
-    border-color:rgba(91,140,255,.35);
+    border-color:var(--border);
 }
 
 .chat-card .icon-holder{
@@ -124,7 +124,7 @@
     align-items:center;
     justify-content:center;
     gap:10px;
-    background:var(--panel-light);
+    background:#1d1d23;
     border:none;
     color:var(--text-secondary);
     cursor:pointer;

@@ -16,9 +16,10 @@
 }
 
 .brand-pill{
-    background:rgba(91,140,255,.12);
+    background:var(--panel-light);
     padding:12px 16px;
     border-radius:18px;
+    color:var(--text);
 }
 
 .brand-name{
@@ -54,7 +55,7 @@
     flex-direction:column;
     gap:24px;
     padding:44px 44px 32px;
-    background:var(--panel);
+    background:var(--panel-light);
     border-radius:32px;
     border:1px solid var(--border);
 }
@@ -65,8 +66,8 @@
     gap:10px;
     padding:12px 16px;
     border-radius:999px;
-    background:rgba(91,140,255,.12);
-    color:var(--accent);
+    background:rgba(255,255,255,.06);
+    color:var(--text);
     font-weight:600;
     font-size:13px;
 }
@@ -87,6 +88,9 @@
     color:var(--text-secondary);
     font-size:18px;
     line-height:1.8;
+    max-width:700px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .starter-prompts{
@@ -97,7 +101,7 @@
 
 .starter-prompts button{
     border:none;
-    background:rgba(255,255,255,.03);
+    background:var(--panel);
     color:var(--text);
     padding:16px 18px;
     border-radius:18px;
@@ -106,13 +110,13 @@
     text-align:left;
     font-size:15px;
     font-weight:600;
-    border:1px solid transparent;
+    border:1px solid var(--border);
 }
 
 .starter-prompts button:hover{
     transform:translateY(-1px);
-    background:rgba(91,140,255,.14);
-    border-color:rgba(91,140,255,.35);
+    background:#1f1f23;
+    border-color:#3b3b44;
 }
 
 .hero-input-wrapper{
@@ -130,8 +134,8 @@
     min-height:60px;
     resize:none;
     border-radius:24px;
-    border:1px solid var(--border);
-    background:var(--panel-light);
+    border:1px solid #38383f;
+    background:#141418;
     color:var(--text);
     padding:16px 18px;
     font-size:16px;
@@ -142,7 +146,7 @@
     height:62px;
     border-radius:20px;
     border:none;
-    background:var(--accent);
+    background:#1a1a1f;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -174,9 +178,9 @@
 
 .message-row.user{
     justify-self:flex-end;
-    background:rgba(91,140,255,.12);
+    background:#23232c;
     color:var(--text);
-    border:1px solid rgba(91,140,255,.4);
+    border:1px solid #37373f;
 }
 
 .message-row.bot{
@@ -326,7 +330,7 @@
 }
 
 input:checked + .slider{
-    background:linear-gradient(135deg,#5b8cff,#4b6ed6);
+    background:#5a5a64;
 }
 
 input:checked + .slider:before{
@@ -355,8 +359,8 @@ input:checked + .slider:before{
 }
 
 .mode-btn.active{
-    background:rgba(91,140,255,.18);
-    border-color:rgba(91,140,255,.35);
+    background:rgba(255,255,255,.08);
+    border-color:var(--border);
 }
 
 .primary-btn{
@@ -367,7 +371,7 @@ input:checked + .slider:before{
     font-weight:700;
     cursor:pointer;
     color:#fff;
-    background:linear-gradient(135deg,#5b8cff,#4f76d3);
+    background:#2f2f35;
     transition:filter .2s ease;
 }
 
